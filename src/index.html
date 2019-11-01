@@ -3,165 +3,7 @@
 
 <head>
   <meta name="viewport" content="width=750, user-scalable=no">
-  <script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
-  <style>
-    html,
-    body, ul, li {
-      margin: 0;
-      padding: 0;
-      user-select: none;
-      list-style: none;
-    }
-    
-    canvas {
-      user-select: none;
-    }
-    
-    .cover {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 750px;
-      height: 1206px;
-      z-index: 99;
-      overflow: hidden;
-      background: url("http://static.ws.126.net/f2e/ent/ent_painting2016/images/cover_bg.jpg") no-repeat center right;
-    }
-    
-    .cover .year2016 {
-      opacity: 0;
-      position: absolute;
-      left: 230px;
-      top: 90px;
-      width: 80px;
-      height: 250px;
-      background: url('http://static.ws.126.net/f2e/ent/ent_painting2016/images/cover.png') no-repeat 0 -135px;
-      -webkit-transition: transform 3s, opacity 1s
-    }
-    
-    .cover .title, .cover .title_bg {
-      width: 725px;
-      height: 1206px;
-      position: absolute;
-      left: 0;
-      top: 0;
-      background-size: cover
-    }
-    
-    .cover .yu {
-      position: absolute;
-      left: 657px;
-      top: 377px;
-      width: 60px;
-      height: 130px;
-      background: url("http://static.ws.126.net/f2e/ent/ent_painting2016/images/cover.png") no-repeat -235px 0;
-      -webkit-transform-origin: 50% 0;
-      -webkit-animation: rotate_yuan 3s ease-in-out infinite
-    }
-    
-    .cover.active .year2016 {
-      -webkit-transform: translate(0, 50px);
-      opacity: 1
-    }
-    
-    .operating {
-      position: fixed;
-      left: 50%;
-      top: 20%;
-      transform: translate(-50%, 0);
-      display: none;
-    }
-    
-    .operating li {
-      padding: 30px 60px;
-      font-size: 50px;
-      letter-spacing: 10px;
-      color: white;
-      background: darkred;
-      margin-bottom: 80px;
-      border-radius: 20px;
-    }
-    
-    .start {
-      position: absolute;
-      left: 50%;
-      bottom: 50px;
-      z-index: 99;
-      width: 140px;
-      height: 140px;
-      margin-left: -57px;
-      background: url('http://static.ws.126.net/f2e/ent/ent_painting2016/images/cover.png') -806px 26px;
-      -webkit-animation: start1 5s ease-in-out infinite
-    }
-    
-    .start:after {
-      content: "";
-      display: block;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 140px;
-      height: 140px;
-      background: url('http://static.ws.126.net/f2e/ent/ent_painting2016/images/cover.png') -670px 0;
-      -webkit-animation: start 1s ease-in-out infinite;
-      -webkit-transform-origin: 50% 100%
-    }
-    
-    .start:active:after {
-      -webkit-transform: scale(0.95);
-      -webkit-animation: none
-    }
-    
-    @-webkit-keyframes start {
-      0% {
-        -webkit-transform: scale(1)
-      }
-      50% {
-        -webkit-transform: scale(0.95)
-      }
-      100% {
-        -webkit-transform: scale(1)
-      }
-    }
-    
-    @-webkit-keyframes rotate_yuan {
-      0% {
-        -webkit-transform: rotate(-4deg)
-      }
-      50% {
-        -webkit-transform: rotate(10deg)
-      }
-      100% {
-        -webkit-transform: rotate(-4deg)
-      }
-    }
-    
-    .loading {
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      background: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 100;
-      font-size: 32px;
-    }
-    
-    .toast {
-      position: fixed;
-      background: #ffffff;
-      z-index: 100;
-      text-align: center;
-      border-radius: 20px;
-      font-size: 32px;
-      left: 50%;
-      top: 50%;
-      padding: 20px 40px;
-      transform: translate(-50%, -50%);
-      display: none;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="./main.css" />
 </head>
 
 <body>
@@ -178,11 +20,12 @@
 <div class="start"></div>
 <div class="toast"></div>
 <ul id="action" class="operating">
-  <li>时光倒流</li>
-  <li>再看一遍</li>
-  <li>换个场景</li>
+  <li id="reverse">时光倒流</li>
+  <li id="reload">再看一遍</li>
+  <li id="share">分享画报</li>
 </ul>
 <div class="container" style="display:none"></div>
+<script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
 <script src="../lib/vpip.js"></script>
 <script src="./index.js"></script>
 </body>
